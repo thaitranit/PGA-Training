@@ -2,11 +2,10 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { ROUTES } from './configs/routes';
 import ProtectedRoute from './modules/common/components/ProtectedRoute';
+import UIPages from './modules/UI/pages/UIPages';
 
-const HomePage = lazy(() => import('./modules/home/pages/HomePage'));
-const ContactPage = lazy(() => import('./modules/home/pages/ContactPage'));
 const LoginPage = lazy(() => import('./modules/auth/pages/LoginPage'));
-// const Product = lazy(() => import('./modules/Products/Product'));
+const ProductListPage = lazy(() => import('./modules/product/pages/ProductListPage'));
 
 interface Props {}
 
@@ -17,10 +16,12 @@ export const Routes = (props: Props) => {
     <Suspense fallback={<div>Loading.....</div>}>
       <Switch location={location}>
         <Route path={ROUTES.login} component={LoginPage} />
-        <ProtectedRoute path={ROUTES.home} component={HomePage} />
-        <Route path={ROUTES.contact} component={ContactPage} />
-        {/* <Route path={ROUTES.product} component={Product}/> */}
-        <Route path="/" component={LoginPage} />
+        <Route exact path="/" component={LoginPage} />
+
+        <UIPages>
+          <ProtectedRoute path={ROUTES.product} component={ProductListPage} />
+        </UIPages>
+
       </Switch>
     </Suspense>
   );

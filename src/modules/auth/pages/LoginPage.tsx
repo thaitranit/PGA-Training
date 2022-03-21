@@ -13,6 +13,8 @@ import { fetchThunk } from '../../common/redux/thunk';
 import LoginForm from '../components/LoginForm';
 import {Spinner} from 'react-bootstrap'
 import Swal from 'sweetalert2'
+import { setUserInfo } from '../redux/authReducer';
+
 
 const LoginPage = () => {
   const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
@@ -31,10 +33,10 @@ const LoginPage = () => {
       setLoading(false);
 
       if (json?.success === true) {
-        // dispatch(setUserInfo(json.data));
+        // dispatch(setUserInfo(json.user));
         setLoading(false)
         Cookies.set(ACCESS_TOKEN_KEY, json.user_cookie, { expires: values.rememberMe ? 7 : undefined });
-        dispatch(replace(ROUTES.home));
+        dispatch(replace(ROUTES.product));
         return;
          
       }

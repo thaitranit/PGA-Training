@@ -1,0 +1,37 @@
+.sidebar {
+
+    width: 260px;
+    flex-shrink: 0;
+  
+    & .MuiDrawer-paper {
+      width: 260px;
+      box-sizing: border-box;
+    }
+  
+    & .MuiPaper-root {
+      top: 80px;
+      z-index: 1000;
+      background-color: #323259;
+    }
+  
+    & .MuiListItemButton-root {
+      border-bottom: 1px solid black;
+      color: white;
+  
+      & .MuiTypography-root {
+        font-size: 13px;
+      }
+  
+      & .MuiListItemIcon-root {
+        color: white;
+      }
+    }
+  
+    & .collapse-item-active {
+      color: #9266e7;
+  
+      & .MuiListItemIcon-root {
+        color: #9266e7 !important;
+      }
+    }
+  }

@@ -1,0 +1,70 @@
+.app-bar {
+    position: fixed;
+  
+    &.MuiAppBar-root {
+      background-color: #323259;
+    }
+  
+    & .MuiToolbar-root {
+      padding: 1rem;
+      z-index: 10000;
+      box-shadow: 0 0.5rem 1rem 0 #1a1f33;
+    }
+  
+    & .MuiTypography-h5 {
+      font-size: 28px;
+      color: white;
+    }
+  
+    &__user {
+      position: relative;
+      opacity: 0.5;
+      transition: 0.3 all ease-in-out;
+  
+      & .popover-account {
+        display: none;
+        position: absolute;
+        min-width: 200px;
+        padding: 0.5rem 1rem;
+        background-color: white;
+        right: 0;
+        border-radius: 5px;
+  
+        & .MuiTypography-subtitle1 {
+          color: black;
+          font-size: 14px;
+        }
+  
+        & a {
+          display: block;
+          margin-top: 10px;
+          color: black;
+          font-size: 15px;
+  
+          &:hover {
+            cursor: pointer;
+            color: #5ca1e7;
+          }
+        }
+  
+        &:after {
+          content: "";
+          height: 10px;
+          width: 150px;
+          background-color: transparent;
+          display: block;
+          position: absolute;
+          top: -8px;
+          right: 2px;
+        }
+      }
+  
+      &:hover {
+        opacity: 1;
+  
+        & .popover-account {
+          display: block;
+        }
+      }
+    }
+  }
